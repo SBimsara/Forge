@@ -15,6 +15,7 @@ public class Window {
     private int height;
     private String title;
     private long glfwWindow;
+    private float r, g, b, a;
     private static Window window = null;
 
     private Window(){
@@ -67,6 +68,12 @@ public class Window {
             throw new IllegalStateException("Failed to create window");
         }
 
+        glfwSetCursorPosCallback(glfwWindow, MouseListener::mousePosCallback);
+        glfwSetMouseButtonCallback(glfwWindow, MouseListener::mouseButtonCallback);
+        glfwSetScrollCallback(glfwWindow, MouseListener::mouseScrollCallback);
+
+        glfwSetKeyCallback(glfwWindow, KeyListener::keyCallBack);
+
         // Make the OpenGL context current
         glfwMakeContextCurrent(glfwWindow);
 
@@ -94,6 +101,10 @@ public class Window {
             // Set the clear color
             glClearColor(1.0f, 0.0f, 0.0f, 0.0f);
             glClear(GL_COLOR_BUFFER_BIT);
+
+            if(KeyListener.isKeyPressed(GLFW_KEY_SPACE)){
+                System.out.println("Space is pressed");
+            }
 
             glfwSwapBuffers(glfwWindow);
         }
