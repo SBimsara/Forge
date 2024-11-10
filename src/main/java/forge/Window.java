@@ -16,7 +16,6 @@ public class Window {
     private int height;
     private String title;
     private long glfwWindow;
-    public float r, g, b, a;
     private static Window window = null;
     private static Scene currentScene;
 
@@ -121,7 +120,7 @@ public class Window {
             glfwPollEvents();
 
             // Set the clear color
-            glClearColor(r, g, b, a);
+            glClearColor(0.0f, 0.0f, 0.0f,  0.0f);
             glClear(GL_COLOR_BUFFER_BIT);
 
             if(dt >= 0){
