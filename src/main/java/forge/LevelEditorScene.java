@@ -19,9 +19,6 @@ public class LevelEditorScene extends Scene {
 
         if(changingScene && timeToChangeScene > 0) {
             timeToChangeScene -= dt;
-            Window.get().r -= dt;
-            Window.get().g -= dt * 5.0f;
-            Window.get().b -= dt * 5.0f;
             
         } else if (changingScene) {
             Window.changeScene(1);
