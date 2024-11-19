@@ -30,6 +30,7 @@ public class Window {
             case 0:
                 currentScene = new LevelEditorScene();
                 currentScene.init();
+                break;
             case 1:
                 currentScene = new LevelScene();
                 currentScene.init();
